@@ -1,0 +1,109 @@
+---
+title: "Conditionals and Loops"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Conditionals
+
+Conditionals let us make data-dependent choices about what to do next.
+
+If
+```{}
+if (condition is true) {
+  perform action
+}
+```
+
+If else
+```{}
+if (condition is true) {
+  do this 
+} else {
+  do that
+}
+```
+
+Example
+```{r}
+
+x <- 5
+
+if ( x > 10) {
+  print("x is greater than 10") 
+} else if (x > 5) {
+  print("x > 5, but less than 10")
+} else {
+  print("x is 5 or less")
+
+}
+```
+
+ifelse() for vector comparisons
+
+```{r}
+ifelse(condition, true action, false action)
+```
+
+```{r}
+
+x <- 1:10
+ifelse(x > 5, "x is greater than 5", "x is less than five")
+```
+
+# Looping in R
+
+If you have a list/vector of things you want to do something with, looping is one way to do that. 
+
+for loops say: for (iterator in list of elements), do this
+
+```{r}
+for (i in 1:10 ) {
+  print(i)
+}
+```
+
+Nested for loops - iterate over two things at once
+
+```{r}
+output <- character(10)
+for (i in 1:5) {
+  for (j in letters[1:5]) {
+    output <- c(output, paste(i,j))
+  }
+}
+```
+
+```{r}
+x
+```
+
+# Abstraction
+
+What is R doing "behind the scenes" when we ask it to do this:
+
+```{r}
+system.time(replicate(100000,
+1:50 + 1
+))
+```
+It's looping! BUT, R knows how to do this in the most efficient way possible. Here's an equivalent for loop:
+
+```{r}
+add <- function(x) {
+  y <- integer(x)
+  for (i in 1:x) {
+    y[i] <- i + 1
+  }
+  y
+}
+
+
+system.time(replicate(100000,
+add(50)
+))
+```
+
