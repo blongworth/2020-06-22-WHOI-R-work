@@ -106,4 +106,19 @@ system.time(replicate(100000,
 add(50)
 ))
 ```
+```{r}
+gapminder <- read.csv("../data/gapminder_data.csv")
+
+(gapminder[(gapminder$year == 2002),]
+
+rows2002 <- nrow(gapminder[(gapminder$year == 2002),])
+rows2002
+
+rows2002 >= 1
+
+if (nrow(gapminder[(gapminder$year == 2002),]) >= 1) {
+  print("records for 2002 found")
+}
+
+```
 
