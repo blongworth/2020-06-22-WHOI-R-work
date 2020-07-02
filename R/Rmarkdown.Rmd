@@ -1,0 +1,30 @@
+---
+title: "Rmarkdown Lesson"
+author: "Brett Longworth"
+date: "7/2/2020"
+output: html_document
+---
+
+# Introduction
+
+Today we'll cover **Markdown**.
+
+* Marking up with markdown
+* how do documents render?
+* code chunks
+* inline code
+
+![tidy data](https://rstudio-conf-2020.github.io/r-for-excel/img/tidy_data.png)
+
+Equations like $E = mc^2$ 
+
+$$y = \mu + \sum_{i=1}^p \beta_i x_i + \epsilon$$
+
+
+```{r}
+summary(cars)
+```
+
+# How documents are compiled
+
+![compiling](https://swcarpentry.github.io/r-novice-gapminder/fig/rmd-15-rmd_to_html_fig-1.png)
